@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_network_admin">
+            <field name="name">Network Administration</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_network_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_network_admin"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_network_admin">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_network_admin"/>
+        </record>
+        <record model="res.group" id="group_network">
+            <field name="name">Network</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_network">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_network"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_network">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_network"/>
+        </record>
+
+        <record model="ir.ui.view" id="network_item_view_form">
+            <field name="model">network.item</field>
+            <field name="type">form</field>
+            <field name="name">item_form</field>
+        </record>
+        <record model="ir.ui.view" id="network_item_view_list">
+            <field name="model">network.item</field>
+            <field name="type">tree</field>
+            <field name="name">item_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_network_item">
+            <field name="name">Network Item</field>
+            <field name="res_model">network.item</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_item_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="network_item_view_list"/>
+            <field name="act_window" ref="act_network_item"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_item_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="network_item_view_form"/>
+            <field name="act_window" ref="act_network_item"/>
+        </record>
+        <record model="ir.model.access" id="access_network_item">
+            <field name="model" search="[('model', '=', 'network.item')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_network_item_admin">
+            <field name="model" search="[('model', '=', 'network.item')]"/>
+            <field name="group" ref="group_network_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.ui.view" id="network_item_type_view_form">
+            <field name="model">network.item.type</field>
+            <field name="type">form</field>
+            <field name="name">item_type_form</field>
+        </record>
+        <record model="ir.ui.view" id="network_item_type_view_list">
+            <field name="model">network.item.type</field>
+            <field name="type">tree</field>
+            <field name="name">item_type_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_network_item_type">
+            <field name="name">Network Item Type</field>
+            <field name="res_model">network.item.type</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_item_type_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="network_item_type_view_list"/>
+            <field name="act_window" ref="act_network_item_type"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_item_type_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="network_item_type_view_form"/>
+            <field name="act_window" ref="act_network_item_type"/>
+        </record>
+        <record model="ir.model.access" id="access_network_item_type">
+            <field name="model" search="[('model', '=', 'network.item.type')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_network_item_type_admin">
+            <field name="model" search="[('model', '=', 'network.item.type')]"/>
+            <field name="group" ref="group_network_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_network_relation">
+            <field name="model" search="[('model', '=', 'network.relation')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_network_relation_admin">
+            <field name="model" search="[('model', '=', 'network.relation')]"/>
+            <field name="group" ref="group_network_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.ui.view" id="network_relation_all_view_form">
+            <field name="model">network.relation.all</field>
+            <field name="type">form</field>
+            <field name="name">relation_all_form</field>
+        </record>
+        <record model="ir.ui.view" id="network_relation_all_view_list">
+            <field name="model">network.relation.all</field>
+            <field name="type">tree</field>
+            <field name="name">relation_all_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_network_relation_all">
+            <field name="name">Network Item Relation</field>
+            <field name="res_model">network.relation.all</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_relation_all_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="network_relation_all_view_list"/>
+            <field name="act_window" ref="act_network_relation_all"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_relation_all_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="network_relation_all_view_form"/>
+            <field name="act_window" ref="act_network_relation_all"/>
+        </record>
+        <record model="ir.model.access" id="access_network_relation_all">
+            <field name="model" search="[('model', '=', 'network.relation.all')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_network_relation_all_admin">
+            <field name="model" search="[('model', '=', 'network.relation.all')]"/>
+            <field name="group" ref="group_network_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.ui.view" id="network_relation_type_view_form">
+            <field name="model">network.relation.type</field>
+            <field name="type">form</field>
+            <field name="name">relation_type_form</field>
+        </record>
+        <record model="ir.ui.view" id="network_relation_type_view_list">
+            <field name="model">network.relation.type</field>
+            <field name="type">tree</field>
+            <field name="name">relation_type_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_network_relation_type">
+            <field name="name">Network Relation Type</field>
+            <field name="res_model">network.relation.type</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_relation_type_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="network_relation_type_view_list"/>
+            <field name="act_window" ref="act_network_relation_type"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_network_relation_type_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="network_relation_type_view_form"/>
+            <field name="act_window" ref="act_network_relation_type"/>
+        </record>
+        <record model="ir.model.access" id="access_network_relation_type">
+            <field name="model" search="[('model', '=', 'network.relation.type')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_network_relation_type_admin">
+            <field name="model" search="[('model', '=', 'network.relation.type')]"/>
+            <field name="group" ref="group_network_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="menu_network" name="Network" sequence="1" />
+
+        <record model="ir.ui.menu-res.group" id="menu_network_group_network">
+            <field name="menu" ref="menu_network"/>
+            <field name="group" ref="group_network"/>
+        </record>
+
+        <menuitem action="act_network_item" id="menu_network_item"
+            parent="menu_network" sequence="10" name="Items"/>
+        <menuitem action="act_network_relation_all"
+            id="menu_network_relation_all" parent="menu_network" sequence="20"
+            name="Item Relations"/>
+
+        <record model="ir.ui.menu-res.group" id="menu_network_group_network_admin">
+            <field name="menu" ref="menu_network"/>
+            <field name="group" ref="group_network"/>
+        </record>
+
+        <menuitem id="menu_configuration" parent="menu_network"
+            name="Configuration" icon="tryton-preferences" sequence="0"/>
+        <menuitem action="act_network_item_type" id="menu_network_item_type"
+            parent="menu_configuration" sequence="10" name="Item Types"/>
+        <menuitem action="act_network_relation_type"
+            id="menu_network_relation_type" parent="menu_configuration"
+            sequence="20" name="Relation Types"/>
+
+        <record model="ir.sequence.type" id="sequence_type_network_item">
+            <field name="name">Network Item</field>
+            <field name="code">network.item</field>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_network_item_group_admin">
+            <field name="sequence_type" ref="sequence_type_network_item"/>
+            <field name="group" ref="res.group_admin"/>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_network_item_group_network_admin">
+            <field name="sequence_type" ref="sequence_type_network_item"/>
+            <field name="group" ref="group_network_admin"/>
+        </record>
+
+        <record model="ir.sequence" id="sequence_network_item">
+            <field name="name">Network Item</field>
+            <field name="code">network.item</field>
+        </record>
+    </data>
+</tryton>
